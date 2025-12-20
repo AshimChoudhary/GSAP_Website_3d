@@ -11,11 +11,13 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [hasClicked, setHasClicked] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [loadedVideo, setLoadedVideo] = useState(0);
 
   const totalVideos = 4;
   const nextVdRef = useRef(null);
+  const currentVdRef = useRef(null);
+
+  const isLoading = loadedVideo < totalVideos - 1;
 
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
 
@@ -24,12 +26,6 @@ const Hero = () => {
 
     setCurrentIndex(upcomingVideoIndex);
   };
-
-  useEffect(() => {
-    if (loadedVideo === totalVideos - 1) {
-      setIsLoading(false);
-    }
-  }, [loadedVideo]);
 
   useGSAP(
     () => {
@@ -100,7 +96,7 @@ const Hero = () => {
               className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
             >
               <video
-                ref={nextVdRef}
+                ref={currentVdRef}
                 src={getVideoSource(upcomingVideoIndex)}
                 loop
                 muted
