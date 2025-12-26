@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import AnimationTitle from "./AnimationTitle";
 import gsap from "gsap";
+import RoundedCorners from "./RoundedCorners";
+import Button from "./Button";
 
 const Story = () => {
-  const frameRef = useRef("null");
+  const frameRef = useRef(null);
 
   const element = frameRef.current;
   const handleMouseLeave = () => {
@@ -29,17 +31,25 @@ const Story = () => {
 
     const rotateX = ((y - centerY) / centerY) * -10;
     const rotateY = ((x - centerX) / centerX) * 10;
+
+    gsap.to(element, {
+      duration: 0.3,
+      rotateX,
+      rotateY,
+      transformPerspective: 500,
+      ease: "power1.inOut",
+    });
   };
   return (
     <section className="min-h-dvh w-screen bg-black text-blue-50" id="story">
       <div className="flex size-full flex-col items-center py-10 pb-24">
-        <p className="font-general text-sm uppercase md:text-[10]px">
+        <p className="font-general text-sm uppercase md:text-[10px]">
           The Multiverse IP World
         </p>
 
         <div className="relative size-full">
           <AnimationTitle
-            title="The St<b>o</b>ry of <br/> a hidden real<b>m</b>"
+            title="The St<b>o</b>ry o<b>f</b> <br/> a hidden real<b>m</b>"
             sectionId="#story"
             containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10"
           />
@@ -59,6 +69,21 @@ const Story = () => {
                 />
               </div>
             </div>
+            <RoundedCorners />
+          </div>
+        </div>
+        <div className="mt-80 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end">
+          <div className="flex h-full w-fit flex-col items-center md:items-start">
+            <p className="mt-3 max-w-sm text-center font-circular-web text-violet-50 md:text-start">
+              Where realms converge, lies Zentry and the boundless pillar.
+              Discover its secrets and shape your fate amidst infinite
+              opportunities.
+            </p>
+            <Button
+              id="realm-button"
+              title="discover prologue"
+              containerClass=""
+            />
           </div>
         </div>
       </div>
