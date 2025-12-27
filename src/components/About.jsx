@@ -32,7 +32,7 @@ const About = () => {
         </h2>
 
         <AnimationTitle
-          title={`Disc<b>o</b>ver the Worlds l<b>a</b>rgest <br/> shared <b>a<b/>dventure`}
+          title={`Disc<b>o</b>ver the Worlds l<b>a</b>rgest <br/> shared <b>a</b>dventure`}
           containerClass="mt-5 !text-black text-center"
         />
 

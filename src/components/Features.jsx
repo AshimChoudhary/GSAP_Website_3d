@@ -55,7 +55,7 @@ const Features = () => {
             src="videos/feature-1.mp4"
             title={
               <>
-                radi<b>n</b>t
+                radia<b>n</b>t
               </>
             }
             description="A cross platform metagame App, turning our activities across web2 and web3 games into a rewarding adventure."
@@ -81,7 +81,7 @@ const Features = () => {
                   n<b>e</b>xus
                 </>
               }
-              description="A gamified social hub, adding a new dimension of play to social interaction for web3 communtities."
+              description="A gamified social hub, adding a new dimension of play to social interaction for web3 communities."
             />
           </BentoTilt>
 

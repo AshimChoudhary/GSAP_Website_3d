@@ -4,7 +4,7 @@ const RoundedCorners = () => {
   return (
     <svg
       className="invisible absolute size-0"
-      xmlns="http://wwww.w3.org/2000/svg"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
         <filter id="flt_tag">
