@@ -4,7 +4,13 @@ import { TiLocationArrow } from "react-icons/ti";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 
-const navItems = ["Store", "Vault", "Prologue", "About", "Contact"];
+const navItems = [
+  { name: "Features", id: "features" },
+  { name: "Gallery", id: "gallery" },
+  { name: "Story", id: "story" },
+  { name: "About", id: "about" },
+  { name: "Contact", id: "contact" },
+];
 
 const Navbar = () => {
   const navContainerRef = useRef(null);
@@ -73,13 +79,23 @@ const Navbar = () => {
           </div>
           <div className="flex h-full items-center">
             <div className="hidden md:block">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={index}
+                  href={`#${item.id}`}
                   className="nav-hover-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById(item.id);
+                    if (element) {
+                      element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }
+                  }}
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
             </div>

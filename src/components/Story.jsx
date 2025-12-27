@@ -7,8 +7,10 @@ import Button from "./Button";
 const Story = () => {
   const frameRef = useRef(null);
 
-  const element = frameRef.current;
   const handleMouseLeave = () => {
+    const element = frameRef.current;
+    if (!element) return;
+
     gsap.to(element, {
       duration: 0.3,
       rotateX: 0,
@@ -16,11 +18,12 @@ const Story = () => {
       ease: "power1.inOut",
     });
   };
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
 
+  const handleMouseMove = (e) => {
+    const element = frameRef.current;
     if (!element) return;
 
+    const { clientX, clientY } = e;
     const rect = element.getBoundingClientRect();
 
     const x = clientX - rect.left;
